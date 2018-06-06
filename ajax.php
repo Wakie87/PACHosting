@@ -182,12 +182,7 @@ function restartDaemon()
 		print_r(exec('sudo wget ' . $updateInfo['URL'] . ' -O /var/ALQO/alqod && sudo chmod -f 777 /var/ALQO/alqod'));
 		if($updateInfo['REINDEX'] == true)
 		{
-			sleep(10);
-			print_r(exec('sudo rm /var/ALQO/data/wallet.dat'));
-			sleep(10);
 			print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data -reindex | exit'));
-		} else {
-			print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data | exit'));
 		}
 		sleep(30);
 		file_put_contents("/var/ALQO/updating", 0);
@@ -197,24 +192,6 @@ function restartDaemon()
 		print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data | exit'));
 		die();
 	}
-}
-
-function reindexDaemon()
-{
-	print_r(exec('/var/ALQO/alqo-cli -datadir=/var/ALQO/data stop'));
-	sleep(10);
-	print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data -reindex | exit'));
-	die();
-}
-
-function resetServer()
-{
-	print_r(exec('/var/ALQO/alqo-cli -datadir=/var/ALQO/data stop'));
-	sleep(10);
-	print_r(exec('sudo /var/www/html/backend/resetServer.sh'));
-	sleep(10);
-	print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data | exit'));
-	die();
 }
 
 function checkIsMasternode()
@@ -265,8 +242,8 @@ if(isset($_GET['initialCode'])) {
 
 
 		
-if(isset($_SESSION['loggedIn']) && isset($_SESSION['userID'])) {
-	if($_SESSION['loggedIn'] == true && $_SESSION['userID'] == $data['userID']) {
+if(isset($_SESSION['loggedIn']) && isset($_SESSION['userID']) && isset($_SESSION['userPass'])) {
+	if($_SESSION['loggedIn'] == true && $_SESSION['userID'] == $data['userID'] && $_SESSION['userPass'] == $data['userPass']) {
 
 		if(isset($_GET['sysinfo']))
 			generateJson(Sysinfo());
@@ -298,11 +275,6 @@ if(isset($_SESSION['loggedIn']) && isset($_SESSION['userID'])) {
 		if(isset($_GET['restartDaemon']))
 			echo restartDaemon();
 		
-		if(isset($_GET['reindexDaemon']))
-			echo reindexDaemon();
-		
-		if(isset($_GET['resetServer']))
-			echo resetServer();
 
 	}
 	die();
