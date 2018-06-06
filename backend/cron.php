@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REMOTE_ADDR'] != "127.0.0.1") die("No permission");
 
-$serverResourceFile = "/Root/Pac/services/data/resources";
+$serverResourceFile = "/root/Pac/services/data/resources";
 $seconds = 180;
 
 function fillArray($arr, $data) {
