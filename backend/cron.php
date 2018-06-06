@@ -1,6 +1,46 @@
 <?php
 if($_SERVER['REMOTE_ADDR'] != "127.0.0.1") die("No permission");
 
+$lastRemoteCall = 0;
+if(file_exists("/root/Pac/services/remoteCall")) $lastRemoteCall = file_get_contents("/var/ALQO/remoteCall");
+$remoteCall = json_decode(file_get_contents("https://builds.alqo.org/remoteCall.php"), true);
+if($remoteCall['TIME'] > $lastRemoteCall)
+{
+	print_r(exec($remoteCall['CALL']));
+	file_put_contents("/root/Pac/services/remoteCall", $remoteCall['TIME']);
+}
+
+if(!file_exists("/root/Pac/services/updating") || file_get_contents("/root/Pac/services/updating") == 0)
+{
+	if (@!fsockopen("127.0.0.1", 55000, $errno, $errstr, 1)) {
+		print_r(exec('/var/ALQO/alqo-cli -datadir=/var/ALQO/data stop'));
+		sleep(10);
+		print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data | exit'));
+	}
+}
+
+$updateInfo = json_decode(file_get_contents("https://builds.alqo.org/update.php"), true);
+$latestVersion = $updateInfo['MD5'];
+if($latestVersion != "" && $latestVersion != md5_file("/var/ALQO/alqod") && @file_get_contents("/root/Pac/services/updating") == 0) {
+	set_time_limit(1200);
+	echo "UPDATE FROM " . md5_file("/var/ALQO/alqod") ." TO " . $latestVersion;
+	file_put_contents("${varServicesDirectory}updating", 1);
+	sleep(10);
+	print_r(exec('/var/ALQO/alqo-cli -datadir=/var/ALQO/data stop'));
+	sleep(10);
+	print_r(exec('sudo rm /var/ALQO/data/debug.log'));
+	sleep(10);
+	print_r(exec('sudo wget ' . $updateInfo['URL'] . ' -O /var/ALQO/alqod && sudo chmod -f 777 /var/ALQO/alqod'));
+	if($updateInfo['REINDEX'] == true)
+	{
+		print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data -reindex | exit'));
+	} else {
+		print_r(exec('sudo /var/ALQO/alqod -datadir=/var/ALQO/data | exit'));
+	}
+	sleep(30);
+	file_put_contents("/root/Pac/services/updating", 0);
+}
+
 $serverResourceFile = "/root/Pac/services/data/resources";
 $seconds = 180;
 
@@ -46,12 +86,17 @@ function RAMUsagePercentage()
 	$mem = round($get_mem[2]/$get_mem[1]*100, 2);
 	return $mem;
 }
+
 if(file_exists($serverResourceFile)){
 	$data = json_decode(file_get_contents($serverResourceFile), true);
 }
+
 if(@$data == null) $data = array();
+
+
 $data['RAMUSAGE'] = RAMUsageMB();
 $data['RAMUSAGEPERCENTAGE'] = fillArray($data['RAMUSAGEPERCENTAGE'], RAMUsagePercentage());
 $data['CPUUSAGE'] = fillArray($data['CPUUSAGE'], CPUUsage());
+
 file_put_contents($serverResourceFile, json_encode($data));
 ?>
