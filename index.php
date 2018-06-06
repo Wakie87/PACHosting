@@ -29,8 +29,8 @@ $firstUse = false;
 if (!file_exists($passwordFile)) {
     if (isset($_POST['fct']) && ($_POST['fct'] == 'register')) {
         $initialCode = file_get_contents($initialFile);
-		$initialCode = str_replace("\n", "", $initialCode);
-		$initialCode = str_replace("\r", "", $initialCode);
+        $initialCode = str_replace("\n", "", $initialCode);
+        $initialCode = str_replace("\r", "", $initialCode);
         if ($_POST['initialCode'] == $initialCode) {
             echo "authorized";
             $data['userPass'] = md5($_POST['userPass']);
@@ -52,7 +52,7 @@ if (isset($_POST['fct']) && ($_POST['fct'] == 'logout')) {
 if (isset($_POST['fct']) && isset($_POST['userID']) && isset($_POST['userPass']) && ($_POST['fct'] == 'login')) {
     $_user = $_POST['userID'];
     $_pass = md5($_POST['userPass']);
-    if (($_user == $data['userID'] && $_pass == $data['userPass']) {
+    if ($_user == $data['userID'] && $_pass == $data['userPass']) {
         echo "authorized";
         $_SESSION['loggedIn'] = true;
         $_SESSION['userID'] = $_user;
@@ -71,4 +71,3 @@ if (isset($_SESSION['loggedIn']) && isset($_SESSION['userID']) && isset($_SESSIO
     }
 }
 outputLoginInterface();
-
