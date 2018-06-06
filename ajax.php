@@ -1,4 +1,4 @@
-<?php
+	<?php
 session_start();
 
 $serverResourceFile = "/var/Pac/services/data/resources";
@@ -111,7 +111,7 @@ function Info()
 	$masternodeListRank = readMasterNodeListRank();
 	$masternodeStatus = readMasterNodeStatus();
 	
-	if (@fsockopen("127.0.0.1", 55000, $errno, $errstr, 1)) $arr['status'] = true; else $arr['status'] = false;
+	if (@fsockopen("127.0.0.1", 7112, $errno, $errstr, 1)) $arr['status'] = true; else $arr['status'] = false;
 	$arr['block'] = $info['blocks'];
 	$arr['difficulty'] = $info['difficulty'];
 	$arr['walletVersion'] = $info['walletversion'];
