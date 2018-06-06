@@ -5,7 +5,7 @@
     color: #5a5a5a;
 }
 #footerlink:hover{
-    color:#ee5b18;
+    color:#f5ea51;
     cursor:pointer;
 }
 .infoOutput{
@@ -67,27 +67,27 @@
 .btn-accent {
   color: #949ba2;
   background-color: transparent;
-  border-color: #ee5b18;
+  border-color: #f5ea51;
 }
 .btn-accent:focus,
 .btn-accent.focus {
   color: #ffffff;
   background-color: rgba(246, 168, 33, 0.1);
-  border-color: #ee5b18;
+  border-color: #f5ea51;
   outline: 0;
   box-shadow: none;
 }
 .btn-accent:hover {
   color: #ffffff;
   background-color: rgba(246, 168, 33, 0.1);
-  border-color: #ee5b18;
+  border-color: #f5ea51;
 }
 .btn-accent:active,
 .btn-accent.active,
 .open > .dropdown-toggle.btn-accent {
   color: #ffffff;
   background-color: rgba(246, 168, 33, 0.1);
-  border-color: #ee5b18;
+  border-color: #f5ea51;
 }
 .btn-accent:active:hover,
 .btn-accent.active:hover,
@@ -119,7 +119,7 @@ fieldset[disabled] .btn-accent:focus,
 .btn-accent[disabled].focus,
 fieldset[disabled] .btn-accent.focus {
   background-color: rgba(246, 168, 33, 0.1);
-  border-color: #ee5b18;
+  border-color: #f5ea51;
 }
 .btn-accent .badge {
   color: transparent;
@@ -503,7 +503,7 @@ fieldset[disabled] .btn-danger.focus {
 .btn-link:active:focus,
 .btn-link:focus,
 .btn-link.active {
-  color: #ee5b18;
+  color: #f5ea51;
   text-decoration: none;
 }
 .dropdown-menu > .active > a,
@@ -515,7 +515,7 @@ fieldset[disabled] .btn-danger.focus {
   outline: 0;
 }
 .typeahead.dropdown-menu li.active a strong {
-  color: #ee5b18;
+  color: #f5ea51;
 }
 .content > div {
   opacity: 1;
@@ -524,7 +524,7 @@ fieldset[disabled] .btn-danger.focus {
   color: #868e96;
 }
 .text-accent {
-  color: #ee5b18;
+  color: #f5ea51;
 }
 .text-primary {
   color: #0f83c9;
@@ -783,7 +783,7 @@ fieldset[disabled] .btn-danger.focus {
   margin: 30px 0;
 }
 .label-accent {
-  background-color: #ee5b18;
+  background-color: #f5ea51;
 }
 body {
   background: #2f323b;
@@ -889,7 +889,7 @@ body.blank .content {
 }
 /* Various */
 a {
-  color: #ee5b18;
+  color: #f5ea51;
   text-decoration: none;
 }
 a:hover,
@@ -906,7 +906,7 @@ hr {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #ee5b18;
+  color: #f5ea51;
   background-color: #24262d;
   border-radius: 3px;
 }
@@ -1059,7 +1059,7 @@ img.image-xl {
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:focus {
   width: 200px;
-  background-color: #ee5b18;
+  background-color: #f5ea51;
   height: 60px;
   padding: 20px 25px;
   font-weight: 400;
@@ -1090,7 +1090,7 @@ img.image-xl {
   padding: 9px 10px 8px 25px;
 }
 .left-nav-toggle:hover a {
-  color: #ee5b18;
+  color: #f5ea51;
 }
 .left-nav-toggle a {
   font-size: 30px;
@@ -1196,7 +1196,7 @@ img.image-xl {
   color: #848c94;
 }
 .luna-nav.nav li.active a {
-  border-left: 6px solid #ee5b18;
+  border-left: 6px solid #f5ea51;
   padding-left: 19px;
   color: #c0c4c8;
 }
@@ -1257,7 +1257,7 @@ img.image-xl {
   border-left: 3px solid #949ba2;
 }
 .panel.panel-c-accent {
-  border-left: 2px solid #ee5b18;
+  border-left: 2px solid #f5ea51;
 }
 .panel.panel-c-primary {
   border-left: 3px solid #0f83c9;
@@ -1275,7 +1275,7 @@ img.image-xl {
   border-left: 3px solid #db524b;
 }
 .panel.panel-b-accent {
-  background-color: #ee5b18;
+  background-color: #f5ea51;
   color: #ffffff;
 }
 .panel.panel-b-white {
@@ -1298,7 +1298,7 @@ img.image-xl {
 }
 .view-header .header-icon {
   font-size: 60px;
-  color: #ee5b18;
+  color: #f5ea51;
   width: 68px;
   float: left;
   margin-top: -8px;
@@ -1757,7 +1757,7 @@ h3,
   margin-top: 10px;
 }
 .c-accent {
-  color: #ee5b18;
+  color: #f5ea51;
 }
 .c-white {
   color: #FFFFFF;
@@ -2523,7 +2523,7 @@ fieldset[disabled] .form-control {
   background-color: rgba(68, 70, 79, 0.7);
 }
 .support-question.active {
-  border-left: 3px solid #ee5b18;
+  border-left: 3px solid #f5ea51;
 }
 .support-question.active .panel-body {
   padding-left: 13px;
@@ -2610,10 +2610,10 @@ fieldset[disabled] .form-control {
 }
 .select2-container--default.select2-container--focus .select2-selection--single,
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-  border-color: #ee5b18;
+  border-color: #f5ea51;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: #ee5b18;
+  background-color: #f5ea51;
 }
 .select2-container--default .select2-search--dropdown .select2-search__field {
   border-color: #3d404c;
@@ -2632,7 +2632,7 @@ fieldset[disabled] .form-control {
   outline: none;
 }
 .ui-select-container.ui-select-bootstrap .ui-select-choices-row.active > a {
-  background-color: #ee5b18;
+  background-color: #f5ea51;
 }
 .ld-loading .panel-body {
   position: relative;
@@ -2665,14 +2665,14 @@ fieldset[disabled] .form-control {
 .loader-bar,
 .loader-bar:before,
 .loader-bar:after {
-  background: #ee5b18;
+  background: #f5ea51;
   -webkit-animation: load-bar-an 1s infinite ease-in-out;
   animation: load-bar-an 1s infinite ease-in-out;
   width: 0.66em;
   height: 0.66em;
 }
 .loader-bar {
-  color: #ee5b18;
+  color: #f5ea51;
   text-indent: -9999em;
   margin: auto auto;
   position: relative;
@@ -2735,7 +2735,7 @@ fieldset[disabled] .form-control {
   border-top: 0.8em solid rgba(246, 168, 33, 0.2);
   border-right: 0.8em solid rgba(246, 168, 33, 0.2);
   border-bottom: 0.8em solid rgba(246, 168, 33, 0.2);
-  border-left: 0.8em solid #ee5b18;
+  border-left: 0.8em solid #f5ea51;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
@@ -2774,7 +2774,7 @@ fieldset[disabled] .form-control {
   animation: load-dots-an 1.8s infinite ease-in-out;
 }
 .loader-dots {
-  color: #ee5b18;
+  color: #f5ea51;
   font-size: 10px;
   margin: auto auto;
   position: relative;
@@ -2827,12 +2827,12 @@ fieldset[disabled] .form-control {
   padding: 5px !important;
   border: none !important;
   border-radius: 10px;
-  background-color: #ee5b18 !important;
+  background-color: #f5ea51 !important;
   width: auto !important;
   height: auto !important;
 }
 .hoverinfo {
-  background-color: #ee5b18 !important;
+  background-color: #f5ea51 !important;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
   border: none !important;
