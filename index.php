@@ -20,9 +20,9 @@ function outputLoginInterface() {
     showTemplate("logininterface.html");
     die();
 }
-$serverdata = json_decode(file_get_contents("/root/Pac/services/_serverinfo"), true);
-$initialFile = "/root/Pac/services/_initial";
-$passwordFile = "/root/Pac/services/_webinterface_pw";
+$serverdata = json_decode(file_get_contents("/var/Pac/services/_serverinfo"), true);
+$initialFile = "/var/Pac/services/_initial";
+$passwordFile = "/var/Pac/services/_webinterface_pw";
 $data['userID'] = "admin";
 $firstUse = false;
 //firstuse

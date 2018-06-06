@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$serverResourceFile = "/root/Pac/services/data/resources";
-$daemonConfigFile = "/root/.paccoincore/paccoin.conf";
-$initialFile = "/root/Pac/services/_initial";
-$passwordFile = "/root/Pac/services/_webinterface_pw";
+$serverResourceFile = "/var/Pac/services/data/resources";
+$daemonConfigFile = "/var/.paccoincore/paccoin.conf";
+$initialFile = "/var/Pac/services/_initial";
+$passwordFile = "/var/Pac/services/_webinterface_pw";
 $data['userID'] = "admin";
 $data['userPass'] =  @file_get_contents($passwordFile);
 
@@ -68,26 +68,26 @@ function Sysinfo()
 //		DAEMON DATA
 //////////////////////////////
 function readInfo() {
-	$d = file_get_contents("/root/Pac/services/data/getinfo");
+	$d = file_get_contents("/var/Pac/services/data/getinfo");
 	return json_decode($d, true);
 }
 function readPeerInfo() {
-	$d = file_get_contents("/root/Pac/services/data/getpeerinfo");
+	$d = file_get_contents("/var/Pac/services/data/getpeerinfo");
 	return json_decode($d, true);
 	
 }
 function readMasterNodeListFull() {
-	$d = file_get_contents("/root/Pac/services/data/masternode_list_full");
+	$d = file_get_contents("/var/Pac/services/data/masternode_list_full");
 	return json_decode($d, true);
 	
 }
 function readMasterNodeListRank() {
-	$d = file_get_contents("/root/Pac/services/data/masternode_list_rank");
+	$d = file_get_contents("/var/Pac/services/data/masternode_list_rank");
 	return json_decode($d, true);
 	
 }
 function readMasterNodeStatus() {
-	$d = file_get_contents("/root/Pac/services/data/masternode_status");
+	$d = file_get_contents("/var/Pac/services/data/masternode_status");
 	return json_decode($d, true);
 	
 }
