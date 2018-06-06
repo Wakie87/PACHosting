@@ -26,9 +26,9 @@ function outputLoginInterface() {
     die();
 }
 
-$serverdata = json_decode(file_get_contents("/var/ALQO/_serverinfo"), true);
-$initialFile = "/var/ALQO/_initial";
-$passwordFile = "/var/ALQO/_webinterface_pw";
+$serverdata = json_decode(file_get_contents("/root/Pac/services/_serverinfo"), true);
+$initialFile = "/root/Pac/services/_initial";
+$passwordFile = "/root/Pac/services/_webinterface_pw";
 $data['userID'] = "admin";
 $firstUse = false;
 
