@@ -2,9 +2,9 @@
 session_start();
 
 $serverResourceFile = "/root/Pac/services/data/resources";
-$daemonConfigFile = "/root/Pac/data/alqo.conf";
-$initialFile = "/root/Pac/_initial";
-$passwordFile = "/root/Pac/_webinterface_pw";
+$daemonConfigFile = "/root/.paccoincore/paccoin.conf";
+$initialFile = "/root/Pac/services/_initial";
+$passwordFile = "/root/Pac/services/_webinterface_pw";
 $data['userID'] = "admin";
 $data['userPass'] =  @file_get_contents($passwordFile);
 
